@@ -1,5 +1,15 @@
 <section class="hero">
+    <div class="hero-title">
+        NUESTRA CIUDAD NO SE VENDE.
+    </div>
 
+    <div class="hero-description">
+        Acción ciudadana luchando por la dignidad de nuestras vecinas, vecinos y sus barrios.
+    </div>
+
+    <div class="hero-coming-soon">
+        🚧 En construcción para Cádiz Resiste 🚧
+    </div>
 </section>
 
 <style lang="scss">
@@ -7,5 +17,35 @@
         min-height: 100vh;
         background-color: var(--background-green-color);
         color: var(--background-text-color);
+        padding-top: 5rem;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1.75rem;
+
+    
+        .hero-title {
+            font-family: KosticRocGrotesk;
+            display: flex;
+            font-size: 3.95rem;
+            font-size: clamp(3.65rem, -0.725rem + 17.5vw,5.7rem);
+            line-height: clamp(5rem, 0.313rem + 18.75vw, 6.75rem);
+        }
+
+        .hero-description {
+            font-family: Montserrat;
+            font-weight: 500;
+            font-size: clamp(1.085rem, -0.218rem + 4.706vw, 1.9rem);
+        }
+
+        .hero-coming-soon {
+            flex-grow: 1;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+            padding-bottom: 10rem;
+        }
     }
 </style>

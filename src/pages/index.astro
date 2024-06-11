@@ -1,23 +1,23 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Hero from '../components/Hero.astro';
+import SectionsLayout from "../layouts/SectionsLayout.astro";
+import Hero from "../components/Hero.astro";
 ---
 
-<Layout title="Cadiz Resiste | Inicio">
-	<main>
-        <Hero />
-        <section class="list">
-            
-        </section>
-	</main>
-</Layout>
+<SectionsLayout title="Cadiz Resiste | Inicio">
+    <main>
+        <div class="mobile-frame">
+            <Hero />
+        </div>
+    </main>
+</SectionsLayout>
 
-<style is:global lang="scss">
-
-    // pruebas
-    section.list {
-        height: 30rem;
-        background-color: red;
+<style lang="scss">
+    main {
+        .mobile-frame {
+            // border: 2px dotted yellow;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
     }
 </style>
