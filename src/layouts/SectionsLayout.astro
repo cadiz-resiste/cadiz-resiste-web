@@ -1,5 +1,4 @@
 ---
-import Header from "../components/Header.astro";
 import 'animate.css'; 
 
 interface Props {
@@ -15,7 +14,7 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Cádiz Resiste | Web" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/cadiz-resiste/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<!-- <meta name="generator" content={Astro.generator} /> -->
 		<title>{title}</title>
 	</head>
@@ -35,7 +34,7 @@ const { title } = Astro.props;
 		// Fonts families
 		@font-face {
 			font-family: "KosticRocGrotesk";
-			src: url("/cadiz-resiste/fonts/KosticRocGrotesk.otf") format("opentype");
+			src: url("/fonts/KosticRocGrotesk.otf") format("opentype");
 			font-weight: normal;
 			font-style: normal;
 			font-display: swap;
@@ -43,7 +42,7 @@ const { title } = Astro.props;
 
 		@font-face {
 			font-family: "Montserrat";
-			src: url("/cadiz-resiste/fonts/Montserrat-Thin.ttf") format("truetype");
+			src: url("/fonts/Montserrat-Thin.ttf") format("truetype");
 			font-weight: 200;
 			font-style: normal;
 			font-display: swap;
@@ -51,7 +50,7 @@ const { title } = Astro.props;
 
 		@font-face {
 			font-family: "Montserrat";
-			src: url("/cadiz-resiste/fonts/Montserrat-Regular.ttf") format("truetype");
+			src: url("/fonts/Montserrat-Regular.ttf") format("truetype");
 			font-weight: 500;
 			font-style: normal;
 			font-display: swap;
@@ -59,7 +58,7 @@ const { title } = Astro.props;
 
 		@font-face {
 			font-family: "Montserrat";
-			src: url("/cadiz-resiste/fonts/Montserrat-Medium.ttf") format("truetype");
+			src: url("/fonts/Montserrat-Medium.ttf") format("truetype");
 			font-weight: 400;
 			font-style: normal;
 			font-display: swap;
