@@ -1,15 +1,37 @@
+---
+import EmailIcon from "./Icons/EmailIcon.astro";
+import InstagramIcon from "./Icons/InstagramIcon.astro";
+import LogoIcon from "./Icons/LogoIcon.astro";
+import TwitterIcon from "./Icons/TwitterIcon.astro";
+---
+
 <section class="hero">
-    <div class="hero-title">
-        NUESTRA CIUDAD NO SE VENDE.
-    </div>
+    <div class="hero-title">NUESTRA CIUDAD NO SE VENDE.</div>
 
     <div class="hero-description">
-        Acción ciudadana luchando por la dignidad de nuestras vecinas, vecinos y sus barrios.
+        Acción ciudadana luchando por la dignidad de nuestras vecinas, vecinos y
+        sus barrios.
     </div>
 
-    <div class="hero-coming-soon">
-        🚧 En construcción para Cádiz Resiste 🚧
+    <div class="hero-footer">
+        <!-- <LogoIcon /> -->
+         <p>Encuéntranos en...</p>
+        <div class="social-media">
+            <a href="https://instagram.com/cadiz.resiste">
+                <InstagramIcon />
+            </a>
+            <a href="https://x.com/cadiz_resiste_">
+                <TwitterIcon />
+            </a>
+            <a href="mailto:hola@cadizresiste.org">
+                <EmailIcon />
+            </a>
+        </div>
+
     </div>
+    <!-- <div class="hero-coming-soon">
+        🚧 En construcción para Cádiz Resiste 🚧
+    </div> -->
 </section>
 
 <style lang="scss">
@@ -21,14 +43,13 @@
 
         display: flex;
         flex-direction: column;
-        gap: 1.75rem;
+        gap: 2.75rem;
 
-    
         .hero-title {
             font-family: KosticRocGrotesk;
             display: flex;
             font-size: 3.95rem;
-            font-size: clamp(3.65rem, -0.725rem + 17.5vw,5.7rem);
+            font-size: clamp(3.65rem, -0.725rem + 17.5vw, 5.7rem);
             line-height: clamp(3.75rem, 0.956rem + 11.765vw, 6.25rem);
         }
 
@@ -36,6 +57,20 @@
             font-family: Montserrat;
             font-weight: 500;
             font-size: clamp(1.085rem, -0.218rem + 4.706vw, 1.9rem);
+        }
+
+        .hero-footer {
+            margin-top: 4rem;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+
+            .social-media {
+                display: flex;
+                gap: 0.5rem;
+            }
         }
 
         .hero-coming-soon {
