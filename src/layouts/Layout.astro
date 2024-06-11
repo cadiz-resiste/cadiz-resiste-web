@@ -1,4 +1,6 @@
 ---
+import Header from "../components/Header.astro";
+
 interface Props {
 	title: string;
 }
@@ -13,39 +15,77 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
+		<!-- <meta name="generator" content={Astro.generator} /> -->
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<!-- <Header /> -->
+		<main>
+			<slot />
+		</main>
 	</body>
 </html>
-<style is:global>
+<style is:global lang="scss">
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+
+		// Fonts families
+		@font-face {
+			font-family: "KosticRocGrotesk";
+			src: url("/fonts/KosticRocGrotesk.otf") format("opentype");
+			font-weight: normal;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: "Montserrat";
+			src: url("/fonts/Montserrat-Thin.ttf") format("truetype");
+			font-weight: 200;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: "Montserrat";
+			src: url("/fonts/Montserrat-Regular.ttf") format("truetype");
+			font-weight: 500;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: "Montserrat";
+			src: url("/fonts/Montserrat-Medium.ttf") format("truetype");
+			font-weight: 400;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		// <--- Variables --->
+
+		// Colors
+		--background-green-color: #076633;
+		--background-text-color: #fff;
+		--text-paragraph-color: #494949;
+
+		// Fonts
+		--hero-font: KosticRocGrotesk;
+		--hero-description-font: Montserrat;
 	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+		background: var(--background-green-color);
+		color: var(--text-color);
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+
+	ul {
+		list-style: none;
 	}
 </style>
