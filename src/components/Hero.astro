@@ -5,15 +5,15 @@ import LogoIcon from "./Icons/LogoIcon.astro";
 import TwitterIcon from "./Icons/TwitterIcon.astro";
 ---
 
-<section class="hero">
+<section class="hero animate__fadeIn">
     <div class="hero-title">NUESTRA CIUDAD NO SE VENDE.</div>
 
     <div class="hero-description">
-        Acción ciudadana en Cádiz: luchando por la dignidad de nuestros vecinos y sus barrios.
+        Acción ciudadana en Cádiz: Luchando por la dignidad de nuestrxs vecinxs y sus barrios.
     </div>
 
     <div class="hero-footer">
-        <!-- <LogoIcon /> -->
+        <LogoIcon />
          <p>Encuéntranos en...</p>
         <div class="social-media">
             <a href="https://instagram.com/cadiz.resiste">
@@ -42,10 +42,12 @@ import TwitterIcon from "./Icons/TwitterIcon.astro";
 
         display: flex;
         flex-direction: column;
-        gap: 2.75rem;
+        gap: 2.25rem;
+        animation-duration: 2s;
 
         .hero-title {
-            font-family: KosticRocGrotesk;
+            // font-family: KosticRocGrotesk;
+            font-family: ArchivoBlack;
             display: flex;
             font-size: 3.95rem;
             font-size: clamp(3.65rem, -0.725rem + 17.5vw, 5.7rem);
@@ -59,7 +61,6 @@ import TwitterIcon from "./Icons/TwitterIcon.astro";
         }
 
         .hero-footer {
-            margin-top: 4rem;
 
             display: flex;
             flex-direction: column;
