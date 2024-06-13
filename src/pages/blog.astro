@@ -4,12 +4,14 @@ import "../styles/common.scss";
 import { contentfulClient } from "../lib/contentful";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import type { BlogPost } from "../lib/contentful";
-import Header from "../components/Header.astro";
+import { type Asset } from 'contentful'
 import MainLayout from "../layouts/MainLayout.astro";
+
 
 const postEntries = await contentfulClient.getEntries<BlogPost>({
     content_type: "blogPost",
 });
+
 ---
 
 <MainLayout title="Cadiz Resiste | Blog">
@@ -17,14 +19,27 @@ const postEntries = await contentfulClient.getEntries<BlogPost>({
         <div class="mobile-frame">
             <h3>Publicaciones</h3>
             {
-                postEntries.items.map((item) => (
-                    <section>
-                        <h2>{item.fields.title}</h2>
-                        <article
-                            set:html={documentToHtmlString(item.fields.content)}
-                        />
-                    </section>
-                ))
+                postEntries.items.map((item) => {
+                    let image = (item.fields.image as Asset);
+
+                    return (
+                        <section>
+                            <h2>{item.fields.title}</h2>
+                            <img src={`https:${image.fields.file.url}?w=400`} alt="" />
+                            <article
+                                set:html={documentToHtmlString(item.fields.content)}
+                            />
+                            
+                            {
+                                item.fields.tags.map(tag => (
+                                    <span>
+                                    # {tag}
+                                    </span>
+                                ))
+                            }
+                        </section>
+                    )
+                })
             }
         </div>
     </main>
