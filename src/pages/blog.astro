@@ -3,23 +3,16 @@ import "../styles/common.scss";
 
 import { contentfulClient } from "../lib/contentful";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import BlogLayout from "../layouts/BlogLayout.astro";
 import type { BlogPost } from "../lib/contentful";
 import Header from "../components/Header.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 
 const postEntries = await contentfulClient.getEntries<BlogPost>({
     content_type: "blogPost",
 });
 ---
 
-<BlogLayout title="Cadiz Resiste | Blog">
-
-    <header>
-        <div class="mobile-frame mobile-frame-header">
-            <Header />
-        </div>
-    </header>
-
+<MainLayout title="Cadiz Resiste | Blog">
     <main>
         <div class="mobile-frame">
             <h3>Publicaciones</h3>
@@ -36,4 +29,4 @@ const postEntries = await contentfulClient.getEntries<BlogPost>({
         </div>
     </main>
 
-</BlogLayout>
+</MainLayout>
