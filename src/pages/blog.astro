@@ -1,26 +1,39 @@
 ---
+import "../styles/common.scss";
+
 import { contentfulClient } from "../lib/contentful";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import BlogLayout from "../layouts/BlogLayout.astro";
 import type { BlogPost } from "../lib/contentful";
+import Header from "../components/Header.astro";
 
-const entries = await contentfulClient.getEntries<BlogPost>({
+const postEntries = await contentfulClient.getEntries<BlogPost>({
     content_type: "blogPost",
 });
 ---
 
 <BlogLayout title="Cadiz Resiste | Blog">
+
+    <header>
+        <div class="mobile-frame mobile-frame-header">
+            <Header />
+        </div>
+    </header>
+
     <main>
-        <h3>Publicaciones</h3>
-        {
-            entries.items.map((item) => (
-                <section>
-                    <h2>{item.fields.title}</h2>
-                    <article
-                        set:html={documentToHtmlString(item.fields.content)}
-                    />
-                </section>
-            ))
-        }
+        <div class="mobile-frame">
+            <h3>Publicaciones</h3>
+            {
+                postEntries.items.map((item) => (
+                    <section>
+                        <h2>{item.fields.title}</h2>
+                        <article
+                            set:html={documentToHtmlString(item.fields.content)}
+                        />
+                    </section>
+                ))
+            }
+        </div>
     </main>
+
 </BlogLayout>

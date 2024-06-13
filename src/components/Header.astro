@@ -1,29 +1,60 @@
 ---
-import LogoIcon from "./Icons/LogoIcon.astro";
+
 ---
 
-<header>
+<div class="header">
     <div class="header-title">
-        <p>Cádiz Resiste</p>
+        <p>CÁDIZ RESISTE</p>
     </div>
     <div class="header-nav">
         <nav>
             <ul>
-                <li>¿Quienes somos?</li>
-                <li>Nuestra lucha</li>
-                <li>Actividades y acciones</li>
+                <li>
+                    <a href="/about">¿Quiénes somos?</a>
+                </li>
+                <li>
+                    <a href="/contact">Contacto</a>
+                </li>
+                <li>
+                    <a href="/blog">Blog</a>
+                </li>
             </ul>
         </nav>
     </div>
-</header>
+</div>
 
 <style lang="scss">
-    header {
+    .header {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: wrap;
         align-items: center;
         gap: 1rem;
+        min-height: 6rem;
 
-        padding: 1rem;
+        .header-title {
+            font-family: ArchivoBlack;
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            white-space: nowrap;
+        }
+
+        .header-nav {
+            nav {
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+
+                    li {
+                        a {
+                            font-size: 1rem;
+                            color: var(--primary-gray);
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+        }
     }
 </style>
