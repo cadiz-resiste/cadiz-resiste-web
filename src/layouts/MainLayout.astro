@@ -1,5 +1,6 @@
 ---
-import 'animate.css'; 
+import Header from "../components/Header.astro";
+import "../styles/common.scss";
 
 interface Props {
 	title: string;
@@ -19,6 +20,20 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+        <header>
+            <div class="mobile-frame mobile-frame-header">
+                <Header />
+            </div>
+        </header>
+
 		<slot />
 	</body>
 </html>
+
+<style lang="scss">
+	body {
+		background-color: white;
+		color: var(--backgorund-text-color);
+		min-height: 100vh;
+    }
+</style>
