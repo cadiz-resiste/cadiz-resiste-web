@@ -1,0 +1,37 @@
+---
+import { contentfulClient } from "../../lib/contentful";
+import { type Asset } from "contentful";
+import type { BlogPost } from "../../lib/contentful";
+
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+
+import MainLayout from "../../layouts/MainLayout.astro"
+
+export async function getStaticPaths() {
+  const entries = await contentfulClient.getEntries<BlogPost>({
+    content_type: "blogPost",
+  });
+
+  const pages = entries.items.map((item) => ({
+    params: { slug: item.fields.slug },
+    props: {
+      title: item.fields.title,
+      content: documentToHtmlString(item.fields.content),
+      date: new Date(item.fields.date).toLocaleDateString(),
+      image: (item.fields.image as Asset)
+    },
+  }));
+  return pages;
+}
+
+const { content, title, date, image } = Astro.props;
+---
+
+<MainLayout title=`Cádiz Resiste | ${title}`>
+    <div class="mobile-frame">
+        <section class="post-detail">
+            <img src={`https:${image.fields.file.url}`} alt="">
+            <article set:html={content}></article>
+        </section>
+    </div>
+</MainLayout>

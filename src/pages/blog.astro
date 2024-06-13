@@ -2,10 +2,11 @@
 import "../styles/common.scss";
 
 import { contentfulClient } from "../lib/contentful";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+
 import type { BlogPost } from "../lib/contentful";
 import { type Asset } from 'contentful'
 import MainLayout from "../layouts/MainLayout.astro";
+import BlogPostCard from "../components/Blog/BlogPostCard.astro";
 
 
 const postEntries = await contentfulClient.getEntries<BlogPost>({
@@ -18,29 +19,14 @@ const postEntries = await contentfulClient.getEntries<BlogPost>({
     <main>
         <div class="mobile-frame">
             <h3>Publicaciones</h3>
-            {
-                postEntries.items.map((item) => {
-                    let image = (item.fields.image as Asset);
 
-                    return (
-                        <section>
-                            <h2>{item.fields.title}</h2>
-                            <img src={`https:${image.fields.file.url}?w=400`} alt="" />
-                            <article
-                                set:html={documentToHtmlString(item.fields.content)}
-                            />
-                            
-                            {
-                                item.fields.tags.map(tag => (
-                                    <span>
-                                    # {tag}
-                                    </span>
-                                ))
-                            }
-                        </section>
-                    )
-                })
-            }
+            <div class="latest-published">
+                {
+                    postEntries.items.map(post => (
+                        <BlogPostCard post={post} />
+                    ))
+                }
+            </div>
         </div>
     </main>
 

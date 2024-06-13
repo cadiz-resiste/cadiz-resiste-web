@@ -1,0 +1,39 @@
+---
+import type { BlogPost } from '../../lib/contentful';
+import { type Entry, type Asset }from "contentful";
+
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+
+interface Props {
+	post: Entry<BlogPost, undefined, string>;
+}
+
+const { post } = Astro.props;
+const image = (post.fields.image as Asset);
+---
+
+<section class="blog-post-card">
+    <a href={`posts/${post.fields.slug}`}>
+        <img src={`https:${image.fields.file.url}?w=500`} alt="" />
+        <div class="card-info">
+            <h2>{post.fields.title}</h2>
+            <article
+                set:html={documentToHtmlString(post.fields.content)}
+            />
+        </div>
+    </a>
+    
+    {/* {
+        item.fields.tags.map(tag => (
+            <span>
+            # {tag}
+            </span>
+        ))
+    } */}
+</section>
+
+<style lang="scss">
+.blog-post-card {
+    margin: 2rem 0;
+}
+</style>
