@@ -3,8 +3,7 @@ import type { BlogPost } from "../../lib/contentful";
 import { type Entry, type Asset } from "contentful";
 
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import { MARKS } from '@contentful/rich-text-types';
-
+import truncate from "html-truncate";
 
 interface Props {
     post: Entry<BlogPost, undefined, string>;
@@ -13,6 +12,8 @@ interface Props {
 const { post } = Astro.props;
 const image = post.fields.image as Asset;
 
+const htmlContent = documentToHtmlString(post.fields.content);
+const truncatedHtml = truncate(htmlContent, 178);
 ---
 
 <section class="post-card">
@@ -24,23 +25,13 @@ const image = post.fields.image as Asset;
     <div class="post-card-info">
         <h3>{post.fields.title.toLocaleUpperCase()}</h3>
         <p class="post-card-date">{new Date(post.fields.date).toLocaleDateString("es-ES")}</p>
-        <article set:html={documentToHtmlString(post.fields.content)} />
+        <article set:html={truncatedHtml} />
     </div>
-
-    {
-        /* {
-        item.fields.tags.map(tag => (
-            <span>
-            # {tag}
-            </span>
-        ))
-    } */
-    }
 </section>
 
 <style lang="scss">
     .post-card {
-        border: 1px solid #d2d2d2;
+        border: 1px solid var(--primary-smoke);
         max-width: 23rem;
         display: flex;
         flex-direction: column;
@@ -79,16 +70,7 @@ const image = post.fields.image as Asset;
             }
 
             article {
-                text-overflow: ellipsis;
-                width: 100%;
-                display: -webkit-box;
-                -webkit-line-clamp: 4;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                p {
-                    color: red;
-                    font-weight: 400 !important;
-                }
+                
             }
 
         }

@@ -18,12 +18,20 @@ const postEntries = await contentfulClient.getEntries<BlogPost>({
     <main>
         <div class="mobile-frame">
 
-            <h3>Publicaciones</h3>
-
-            <div class="latest-published">
-                <PostCardList posts={postEntries} />
+            <div class="publications">
+                <h3>Publicaciones</h3>
+    
+                <div class="latest-published">
+                    <PostCardList posts={postEntries} />
+                </div>
             </div>
         </div>
     </main>
 
 </MainLayout>
+
+<style lang="scss">
+    .publications {
+        margin-top: 2rem;
+    }
+</style>

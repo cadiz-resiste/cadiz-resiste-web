@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
+    "@contentful/rich-text-html-renderer": "^16.5.2",
     "animate.css": "^4.1.1",
     "astro": "^4.10.1",
+    "contentful": "^10.11.12",
+    "html-truncate": "^1.2.2",
     "sass": "^1.77.4",
     "typescript": "^5.4.5"
   }
