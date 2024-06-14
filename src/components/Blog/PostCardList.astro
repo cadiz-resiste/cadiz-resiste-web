@@ -1,0 +1,25 @@
+---
+import type { BlogPost } from "../../lib/contentful";
+import PostCard from "./PostCard.astro";
+
+import { type EntryCollection } from "contentful";
+
+interface Props {
+    posts: EntryCollection<BlogPost, undefined, string>;
+}
+
+const { posts } = Astro.props;
+---
+
+<div class="post-card-list">
+    {posts.items.map((post) => <PostCard post={post} />)}
+</div>
+
+<style lang="scss">
+    .post-card-list {
+        margin: 1rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+</style>
