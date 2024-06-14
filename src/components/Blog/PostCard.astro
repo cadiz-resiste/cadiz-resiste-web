@@ -33,15 +33,17 @@ const truncatedHtml = truncate(htmlContent, 178);
     .post-card {
         border: 1px solid var(--primary-smoke);
         max-width: 23rem;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-rows: 13rem 1fr;
 
         .post-card-img {
             a {
                 display: block;
+                height: 100%;
+
                 img {
                     width: 100%;
-                    height: auto;
+                    height: 100%;
                     object-fit: cover;
                 }
             }
@@ -56,6 +58,7 @@ const truncatedHtml = truncate(htmlContent, 178);
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
+            overflow: hidden;
 
             h3 {
                 line-height: 22px;
