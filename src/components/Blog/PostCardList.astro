@@ -18,8 +18,9 @@ const { posts } = Astro.props;
 <style lang="scss">
     .post-card-list {
         margin: 1rem 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
+        display: grid;
+        gap: 1rem;
+        grid-auto-rows: 26.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
     }
 </style>

@@ -70,6 +70,12 @@ const image = post.fields.image as Asset;
                 line-height: 22px;
                 font-weight: 600;
                 color: var(--primary-green);
+                text-overflow: ellipsis;
+                width: 100%;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
             }
 
             article {
