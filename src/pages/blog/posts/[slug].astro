@@ -5,23 +5,23 @@ import type { BlogPost } from "../../../lib/contentful";
 
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
-import MainLayout from "../../../layouts/MainLayout.astro"
+import MainLayout from "../../../layouts/MainLayout.astro";
 
 export async function getStaticPaths() {
-  const entries = await contentfulClient.getEntries<BlogPost>({
-    content_type: "blogPost",
-  });
+    const entries = await contentfulClient.getEntries<BlogPost>({
+        content_type: "blogPost",
+    });
 
-  const pages = entries.items.map((item) => ({
-    params: { slug: item.fields.slug },
-    props: {
-      title: item.fields.title,
-      content: documentToHtmlString(item.fields.content),
-      date: new Date(item.fields.date).toLocaleDateString(),
-      image: (item.fields.image as Asset)
-    },
-  }));
-  return pages;
+    const pages = entries.items.map((item) => ({
+        params: { slug: item.fields.slug },
+        props: {
+            title: item.fields.title,
+            content: item.fields.content,
+            date: new Date(item.fields.date).toLocaleDateString(),
+            image: item.fields.image as Asset,
+        },
+    }));
+    return pages;
 }
 
 const { content, title, date, image } = Astro.props;
@@ -30,8 +30,50 @@ const { content, title, date, image } = Astro.props;
 <MainLayout title=`Cádiz Resiste | ${title}`>
     <div class="mobile-frame">
         <section class="post-detail">
-            <img src={`https:${image.fields.file.url}`} alt="">
-            <article set:html={content}></article>
+            <div class="post-detail-title">
+                <h3>
+                    Comunicado de prensa tras la rueda celebrada hoy en la Casa
+                    Invisible
+                </h3>
+            </div>
+
+            <div class="post-detail-img-wrapper">
+                <img src={`https:${image.fields.file.url}`} alt="" />
+            </div>
+
+            <!-- <div>
+                {date}
+            </div> -->
+
+            <div class="post-detail-content" set:html={documentToHtmlString(content)}>
+            </div>
         </section>
     </div>
 </MainLayout>
+
+<style lang="scss">
+    .post-detail {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .post-detail-title {
+            margin-top: 2rem;
+            font-size: 1.4rem;
+        }
+
+        .post-detail-img-wrapper {
+            img {
+                width: 100%;
+
+            }
+        }
+
+        .post-detail-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            line-height: 26px;
+        }
+    }
+</style>
