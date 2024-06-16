@@ -23,8 +23,12 @@ const truncatedHtml = truncate(htmlContent, 178);
         </a>
     </div>
     <div class="post-card-info">
-        <h3>{post.fields.title.toLocaleUpperCase()}</h3>
-        <p class="post-card-date">{new Date(post.fields.date).toLocaleDateString("es-ES")}</p>
+        <a href={`blog/posts/${post.fields.slug}`}>
+            <h3>{post.fields.title.toLocaleUpperCase()}</h3>
+        </a>
+        <p class="post-card-date">
+            {new Date(post.fields.date).toLocaleDateString("es-ES")}
+        </p>
         <article set:html={truncatedHtml} />
     </div>
 </section>
@@ -32,7 +36,6 @@ const truncatedHtml = truncate(htmlContent, 178);
 <style lang="scss">
     .post-card {
         border: 1px solid var(--primary-smoke);
-        max-width: 23rem;
         display: grid;
         grid-template-rows: 13rem 1fr;
 
@@ -61,6 +64,7 @@ const truncatedHtml = truncate(htmlContent, 178);
             overflow: hidden;
 
             h3 {
+                min-height: 1.7rem;
                 line-height: 22px;
                 font-weight: 600;
                 color: var(--primary-green);
@@ -70,12 +74,14 @@ const truncatedHtml = truncate(htmlContent, 178);
                 -webkit-line-clamp: 4;
                 -webkit-box-orient: vertical;
                 overflow: hidden;
+
+                @media (max-width: 768px) {
+                    -webkit-line-clamp: 10;
+                }
             }
 
             article {
-                
             }
-
         }
     }
 </style>

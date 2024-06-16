@@ -1,5 +1,6 @@
 ---
 import "../../styles/common.scss";
+import "animate.css";
 
 import { contentfulClient } from "../../lib/contentful";
 
@@ -17,9 +18,8 @@ const postEntries = await contentfulClient.getEntries<BlogPost>({
 <MainLayout title="Cadiz Resiste | Blog">
     <main>
         <div class="mobile-frame">
-
             <div class="publications">
-                <h3>Publicaciones</h3>
+                <h3>Últimas publicaciones</h3>
     
                 <div class="latest-published">
                     <PostCardList posts={postEntries} />
@@ -32,6 +32,9 @@ const postEntries = await contentfulClient.getEntries<BlogPost>({
 
 <style lang="scss">
     .publications {
-        margin-top: 2rem;
+        h3 {
+            margin-top: 2rem;
+            margin-bottom: 1.75rem;
+        }
     }
 </style>
