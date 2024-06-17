@@ -8,31 +8,27 @@ import type { BlogPost } from "../../lib/contentful";
 import MainLayout from "../../layouts/MainLayout.astro";
 import PostCardList from "../../components/Blog/PostCardList.astro";
 
-
 const postEntries = await contentfulClient.getEntries<BlogPost>({
     content_type: "blogPost",
 });
-
 ---
 
 <MainLayout title="Cadiz Resiste | Blog">
     <main>
-        <div class="mobile-frame">
-            <div class="publications">
-                <h3>Últimas publicaciones</h3>
-    
-                <div class="latest-published">
-                    <PostCardList posts={postEntries} />
-                </div>
+        <div class="publications">
+            <h3>Últimas publicaciones</h3>
+
+            <div class="latest-published">
+                <PostCardList posts={postEntries} />
             </div>
         </div>
     </main>
-
 </MainLayout>
 
 <style lang="scss">
     .publications {
         h3 {
+            margin-top: 2rem;
             margin-bottom: 1.5rem;
         }
     }

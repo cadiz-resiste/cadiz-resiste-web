@@ -28,7 +28,7 @@ const { content, title, date, image } = Astro.props;
 ---
 
 <MainLayout title=`Cádiz Resiste | ${title}`>
-    <div class="mobile-frame">
+    <div class="post-detail-wrapper">
         <section class="post-detail">
             <div class="post-detail-title">
                 <h3>
@@ -52,28 +52,33 @@ const { content, title, date, image } = Astro.props;
 </MainLayout>
 
 <style lang="scss">
-    .post-detail {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-
-        .post-detail-title {
-            margin-top: 2rem;
-            font-size: 1.4rem;
-        }
-
-        .post-detail-img-wrapper {
-            img {
-                width: 100%;
-
-            }
-        }
-
-        .post-detail-content {
+    .post-detail-wrapper {
+        max-width: 720px;
+        margin: 0 auto;
+        
+        .post-detail {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            line-height: 26px;
+            gap: 1.5rem;
+    
+            .post-detail-title {
+                margin-top: 2rem;
+                font-size: 1.4rem;
+            }
+    
+            .post-detail-img-wrapper {
+                img {
+                    width: 100%;
+    
+                }
+            }
+    
+            .post-detail-content {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                line-height: 26px;
+            }
         }
     }
 </style>

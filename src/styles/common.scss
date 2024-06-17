@@ -86,7 +86,6 @@ body {
 
         main {
             flex-grow: 1;
-            padding: 2rem 0;
         }
     }
 }
@@ -100,6 +99,9 @@ a {
     text-decoration: none;
 }
 
-b {
-    font-weight: 500;
+// Se mantiene esta clase en Hero.astro
+.mobile-frame {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1rem;
 }
