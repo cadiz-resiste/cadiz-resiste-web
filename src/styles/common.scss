@@ -51,6 +51,8 @@
     --background-text-color: #fff;
     --backgorund-text-color: var(--primary-gray);
 
+    --background-grey: #f2f0f0;
+
     // Fonts
     --hero-font: KosticRocGrotesk;
     --hero-description-font: Montserrat;
@@ -66,23 +68,29 @@
 body {
     font-family: Montserrat;
     font-weight: 400;
-    background: var(--background-green-color);
     color: var(--background-text-color);
+    background-color: var(--background-grey);
+    color: var(--backgorund-text-color);
+    min-height: 100vh;
+
+    .main-container {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        background-color: white;
+        min-height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+
+        main {
+            flex-grow: 1;
+        }
+    }
 }
 
 ul {
     list-style: none;
-}
-
-.mobile-frame {
-    // border: 2px dotted yellow;
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 1rem;
-
-    &.mobile-frame-header {
-        max-width: 820px;
-    }
 }
 
 a {
