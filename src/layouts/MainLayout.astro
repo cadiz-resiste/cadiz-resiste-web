@@ -24,24 +24,16 @@ const { title } = Astro.props;
 		</style>
 	</head>
 	<body>
-        <header>
-            <div class="mobile-frame mobile-frame-header">
-                <Header />
-            </div>
-        </header>
-
-		<slot />
+		<div class="main-container">
+			<Header />
+			<slot />
+		</div>
 	</body>
 </html>
 
  <!-- is:global: little trick to style bold marks on postcard.astro :) -->
 <style is:global lang="scss">
-	body {
-		background-color: white;
-		color: var(--backgorund-text-color);
-		min-height: 100vh;
-    }
-
+	
 	// little trick to style bold marks on postcard.astro :)
 	.post-card-list article b {font-weight: 400;}
 
