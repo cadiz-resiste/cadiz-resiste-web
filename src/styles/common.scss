@@ -97,3 +97,10 @@ a {
     color: inherit;
     text-decoration: none;
 }
+
+// Se mantiene esta clase en Hero.astro
+.mobile-frame {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1rem;
+}
