@@ -1,9 +1,21 @@
 ---
+import CadizSkyLineIcon from "../components/Icons/CadizSkyLineIcon.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+
+import "animate.css"
 ---
 
 <MainLayout title="Cadiz Resiste | Inicio">
     <main>
-        <p>Home</p>
+        <CadizSkyLineIcon />
     </main>
 </MainLayout>
+
+<style lang="scss">
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+    }
+</style>
