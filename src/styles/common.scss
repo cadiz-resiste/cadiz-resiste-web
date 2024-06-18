@@ -77,7 +77,6 @@ body {
     .main-container {
         max-width: 1040px;
         margin: 0 auto;
-        padding: 1rem 2rem;
         background-color: white;
         min-height: 100vh;
 
@@ -87,6 +86,10 @@ body {
         main {
             flex-grow: 1;
         }
+    }
+
+    .fluid-container {
+        padding: 0 2rem;
     }
 }
 
