@@ -4,71 +4,35 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Cadiz Resiste | Inicio">
-    <main class="">
-        <div class="welcome-component fluid-container">
-            <CadizSkyLineIcon />
-        </div>
-
-        <div class="other-component fluid-container"></div>
+    <main>
+        <div id="other-component" class="other-component fluid-container"></div>
     </main>
 </MainLayout>
 
+<script lang="ts">
+    const otherComponent = document.querySelector("header");
+
+    const welcomeButton = document.getElementById("welcome-butoon");
+    welcomeButton.addEventListener("click", onWelcomeButtonClick)
+
+    function onWelcomeButtonClick(event) {
+        event.preventDefault();
+        otherComponent.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
 <style lang="scss">
     main {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 1rem;
-        background-color: var(--primary-green);
-        box-shadow: 1px 10px 5px rgba(134, 134, 134, 0.5);
+        // position: relative;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        // gap: 1rem;
 
-        .welcome-component {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            height: calc(100vh - 6.5rem); // total alto de pantalla - alto del header
-
-            // .separator {
-            //     position: relative;
-            //     background: #2c3e50;
-            //     height: 0rem;
-            //     margin-top: 5rem;
-
-            //     &:before {
-            //         content: "";
-            //         position: absolute;
-            //         bottom: 0;
-            //         top: 0;
-            //         width: 0;
-            //         height: 0;
-            //         border-style: solid;
-            //         border-width: 8px 8px 0 8px;
-            //         border-color: white transparent transparent transparent;
-            //         left: 50%;
-            //         transform: translateX(-50%) translateY(100%);
-            //         animation: floating 1s cubic-bezier(0.66, -0.16, 0.36, 1)
-            //             infinite;
-            //     }
-
-            //     @keyframes floating {
-            //         0% {
-            //             transform: translate(0, 0px);
-            //         }
-            //         50% {
-            //             transform: translate(0, 10px);
-            //         }
-            //         100% {
-            //             transform: translate(0, -0px);
-            //         }
-            //     }
-            // }
-        }
 
         .other-component {
             background-color: white;
-            height: 30rem;
+            height: 100rem;
         }
     }
 </style>

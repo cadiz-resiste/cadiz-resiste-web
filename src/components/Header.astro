@@ -23,6 +23,7 @@
     </div>
 </header>
 
+
 <style lang="scss">
     header {
         display: flex;
@@ -32,11 +33,12 @@
         align-items: center;
         gap: 1rem;
         height: 6.5rem;
-        background: var(--primary-green);
+        background: white;
+        // border-bottom: 1px solid var(--primary-smoke);
 
         .header-title {
             font-family: ArchivoBlack;
-            color: white;
+            color: var(--primary-green);
             font-size: 1.2rem;
             white-space: nowrap;
         }
@@ -51,7 +53,7 @@
                     li {
                         a {
                             font-size: 1rem;
-                            color: white;
+                            color: var(--primary-gray);;
                             white-space: nowrap;
                         }
                     }
