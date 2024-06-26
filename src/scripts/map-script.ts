@@ -1,8 +1,12 @@
-import L from 'leaflet';
+import L, { icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import 'leaflet/dist/images/marker-icon.png';
+import 'leaflet/dist/images/marker-shadow.png';
+import 'leaflet/dist/images/marker-icon-2x.png';
 import 'leaflet.markercluster/dist/leaflet.markercluster.js';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
+
 
 import UTMConverter from "utm-latlng";
 import type { CustomPoint } from '../lib/types';
@@ -10,21 +14,21 @@ import data from "../lib/openrta-cadiz.json";
 
 // added openstreetmap layer
 const m_mono = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 25,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  maxZoom: 25,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 })
 
 // creating map with some properties
 const map = L.map('map', {
-    center: [36.51710422176086, -6.280138483007821],
-    zoom: 14,
-    zoomControl: true,
-    layers: [m_mono]
+  center: [36.51710422176086, -6.280138483007821],
+  zoom: 14,
+  zoomControl: true,
+  layers: [m_mono]
 });
 
 L.control.scale({
-    imperial: false,
-    maxWidth: 300
+  imperial: false,
+  maxWidth: 300
 }).addTo(map);
 
 // utility to convert utm coords to lat, lng
