@@ -62,6 +62,17 @@ points.forEach(point => {
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
       })
     });
+
+    // creat popup content
+    const popupContent = `
+      <strong>Código Postal:</strong> ${point.CODIGO_POSTAL}<br>
+      <strong>Calle:</strong> ${point.NOMBRE_VIA}<br>
+      <strong>Número:</strong> ${point.KM_NUM || 'N/A'}
+    `;
+
+    // add popup to marker
+    marker.bindPopup(popupContent);
+
     markers.addLayer(marker);
   }
 })
