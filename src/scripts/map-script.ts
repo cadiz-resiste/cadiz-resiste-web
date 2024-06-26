@@ -1,8 +1,9 @@
-import L from 'leaflet';
+import L, { Icon, icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster/dist/leaflet.markercluster.js';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
+
 
 import UTMConverter from "utm-latlng";
 import type { CustomPoint } from '../lib/types';
@@ -10,21 +11,21 @@ import data from "../lib/openrta-cadiz.json";
 
 // added openstreetmap layer
 const m_mono = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 25,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  maxZoom: 25,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 })
 
 // creating map with some properties
 const map = L.map('map', {
-    center: [36.51710422176086, -6.280138483007821],
-    zoom: 14,
-    zoomControl: true,
-    layers: [m_mono]
+  center: [36.51710422176086, -6.280138483007821],
+  zoom: 14,
+  zoomControl: true,
+  layers: [m_mono]
 });
 
 L.control.scale({
-    imperial: false,
-    maxWidth: 300
+  imperial: false,
+  maxWidth: 300
 }).addTo(map);
 
 // utility to convert utm coords to lat, lng
@@ -55,7 +56,23 @@ points.forEach(point => {
     const { lat, lng } = utmConverter.convertUtmToLatLng(coordX, coordY, utmZone, hemisphere);
 
     // add marker tu cluster layer
-    let marker = L.marker([lat, lng]);
+    let marker = L.marker([lat, lng], {
+      icon: new Icon({
+        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+      })
+    });
+
+    // creat popup content
+    const popupContent = `
+      <strong>Código Postal:</strong> ${point.CODIGO_POSTAL}<br>
+      <strong>Calle:</strong> ${point.NOMBRE_VIA}<br>
+      <strong>Número:</strong> ${point.KM_NUM || 'N/A'}
+    `;
+
+    // add popup to marker
+    marker.bindPopup(popupContent);
+
     markers.addLayer(marker);
   }
 })
