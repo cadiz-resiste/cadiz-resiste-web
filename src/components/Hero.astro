@@ -4,18 +4,21 @@ import InstagramIcon from "./Icons/InstagramIcon.astro";
 import LogoIcon from "./Icons/LogoIcon.astro";
 import TwitterIcon from "./Icons/TwitterIcon.astro";
 import WhatsappIcon from "./Icons/WhatsappIcon.astro";
+
+import "../styles/common.scss";
 ---
 
 <section class="hero animate__fadeIn">
     <div class="hero-title">NUESTRA CIUDAD NO SE VENDE.</div>
 
     <div class="hero-description">
-        Acción ciudadana en Cádiz: Luchando por la dignidad de nuestrxs vecinxs y sus barrios.
+        Acción ciudadana en Cádiz: Luchando por la dignidad de nuestrxs vecinxs
+        y sus barrios.
     </div>
 
     <div class="hero-footer">
         <LogoIcon />
-         <p>Encuéntranos en...</p>
+        <p>Encuéntranos en...</p>
         <div class="social-media">
             <a href="https://instagram.com/cadiz.resiste">
                 <InstagramIcon />
@@ -30,18 +33,18 @@ import WhatsappIcon from "./Icons/WhatsappIcon.astro";
                 <EmailIcon />
             </a>
         </div>
-
     </div>
-    <!-- <div class="hero-coming-soon">
-        🚧 En construcción para Cádiz Resiste 🚧
-    </div> -->
 </section>
 
 <style lang="scss">
+
+    body {
+        background: var(--background-green-color);
+        color: white;
+    }
+
     section.hero {
         min-height: 100vh;
-        background-color: var(--background-green-color);
-        color: var(--background-text-color);
         padding-top: 5rem;
 
         display: flex;
@@ -60,12 +63,11 @@ import WhatsappIcon from "./Icons/WhatsappIcon.astro";
 
         .hero-description {
             font-family: Montserrat;
-            font-weight: 500;
+            font-weight: 400;
             font-size: clamp(1.085rem, -0.218rem + 4.706vw, 1.9rem);
         }
 
         .hero-footer {
-
             display: flex;
             flex-direction: column;
             align-items: center;
