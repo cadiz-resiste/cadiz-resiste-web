@@ -1,0 +1,56 @@
+---
+import MapLayout from "../layouts/MapLayout.astro";
+---
+
+<MapLayout title="Cadiz Resiste | Map">
+    <main>
+        <div class="map-header fluid-container">
+            <h4>Mapas de VUT's en la ciudad de Cádiz</h4>
+            <p>(
+                <span>Fuente:</span>
+                <a
+                    href="https://www.juntadeandalucia.es/servicios/sede/tramites/procedimientos/detalle/6631.html"
+                >
+                    Registro de Turismo de Andalucía</a
+                >
+                )
+                </p
+            >
+        </div>
+
+        <div class="map-filters fluid-container">
+            Filtros
+        </div>
+        <div class="map-container fluid-container">
+            <p>Mapa</p>
+            <div id="map"></div>
+        </div>
+    </main>
+</MapLayout>
+
+<style lang="scss">
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        
+        .map-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            min-height: 5rem;
+            // padding: 1rem 2.5rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+
+            h4 {
+                font-size: 1.4rem;
+            }
+
+            a {
+                font-size: 0.9rem;
+                color: var(--primary-green);
+            }
+        }
+    }
+</style>
