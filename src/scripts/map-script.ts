@@ -1,8 +1,5 @@
-import L, { icon } from 'leaflet';
+import L, { Icon, icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import 'leaflet/dist/images/marker-icon.png';
-import 'leaflet/dist/images/marker-shadow.png';
-import 'leaflet/dist/images/marker-icon-2x.png';
 import 'leaflet.markercluster/dist/leaflet.markercluster.js';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
@@ -59,7 +56,12 @@ points.forEach(point => {
     const { lat, lng } = utmConverter.convertUtmToLatLng(coordX, coordY, utmZone, hemisphere);
 
     // add marker tu cluster layer
-    let marker = L.marker([lat, lng]);
+    let marker = L.marker([lat, lng], {
+      icon: new Icon({
+        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+      })
+    });
     markers.addLayer(marker);
   }
 })
