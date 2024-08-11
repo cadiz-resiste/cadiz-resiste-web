@@ -1,13 +1,55 @@
 ---
-
+import EmailIcon from "./Icons/EmailIcon.astro";
+import InstagramIcon from "./Icons/InstagramIcon.astro";
+import FacebookIcon from "./Icons/FacebookIcon.astro";
+import TwitterIcon from "./Icons/TwitterIcon.astro";
+import WhatsappIcon from "./Icons/WhatsappIcon.astro";
 ---
 
-<footer>
-    Este es el footer
-</footer>
-
-<style lang="scss">
-    footer {
-        border-top: 1px solid var(--primary-smoke);
-    }
-</style>
+<div
+  class="flex flex-col items-center text-white gap-4 font-montserrat font-thin py-4"
+>
+  <p class="text-xl font-bold">Encuéntranos en...</p>
+  <div class="flex items-center">
+    <a
+      href="https://instagram.com/cadiz.resiste"
+      aria-label="Instagram de Cádiz Resiste"
+      class="p-2"
+      title="Enlace al perfil de Instagram de Cádiz Resiste"
+    >
+      <InstagramIcon />
+    </a>
+    <a
+      href="https://x.com/cadiz_resiste_"
+      aria-label="Twitter de Cádiz Resiste"
+      class="p-2"
+      title="Enlace al perfil de Twitter de Cádiz Resiste"
+    >
+      <TwitterIcon />
+    </a>
+    <a
+      href="https://facebook.com/cadiz.resiste"
+      aria-label="Facebook de Cádiz Resiste"
+      class="p-2"
+      title="Enlace al perfil de Facebook de Cádiz Resiste"
+    >
+      <FacebookIcon />
+    </a>
+    <a
+      href="https://chat.whatsapp.com/Ks14DjEPc4d2bUDHBYmqlv"
+      aria-label="WhatsApp de Cádiz Resiste"
+      class="p-2"
+      title="Enlace al grupo de difusión de WhatsApp de Cádiz Resiste"
+    >
+      <WhatsappIcon />
+    </a>
+    <a
+      href="mailto:hola@cadizresiste.org"
+      aria-label="Correo electrónico de Cádiz Resiste"
+      class="p-2"
+      title="Correo electrónico de Cádiz Resiste"
+    >
+      <EmailIcon />
+    </a>
+  </div>
+</div>
