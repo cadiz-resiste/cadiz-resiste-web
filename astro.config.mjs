@@ -4,7 +4,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://jsnzrdz.github.io',
-  base: 'cadiz-resiste',
-  integrations: [tailwind()]
+    site: 'https://cadizresiste.org',
+    base: '/',
+    integrations: [tailwind()]
 });
