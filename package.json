@@ -2,6 +2,7 @@
   "name": "cadiz-resiste",
   "type": "module",
   "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,9 +11,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.7.0",
-    "astro": "^4.10.1",
+    "@astrojs/check": "^0.9.2",
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.13.2",
     "sass": "^1.77.4",
+    "tailwindcss": "^3.4.9",
     "typescript": "^5.4.5"
   }
 }

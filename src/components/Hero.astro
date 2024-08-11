@@ -1,88 +1,18 @@
 ---
-import EmailIcon from "./Icons/EmailIcon.astro";
-import InstagramIcon from "./Icons/InstagramIcon.astro";
-import LogoIcon from "./Icons/LogoIcon.astro";
-import TwitterIcon from "./Icons/TwitterIcon.astro";
+
 ---
 
-<section class="hero">
-    <div class="hero-title">NUESTRA CIUDAD NO SE VENDE.</div>
+<section class="bg-background-green pt-20 flex flex-col gap-11">
+  <div
+    class="text-white font-kostic text-[clamp(3.65rem,_-0.725rem_+_17.5vw,_5.7rem)] leading-[clamp(3.75rem,_0.956rem_+_11.765vw,_6.25rem)]"
+  >
+    NUESTRA CIUDAD NO SE VENDE.
+  </div>
 
-    <div class="hero-description">
-        Acción ciudadana en Cádiz: luchando por la dignidad de nuestros vecinos y sus barrios.
-    </div>
-
-    <div class="hero-footer">
-        <!-- <LogoIcon /> -->
-         <p>Encuéntranos en...</p>
-        <div class="social-media">
-            <a href="https://instagram.com/cadiz.resiste">
-                <InstagramIcon />
-            </a>
-            <a href="https://x.com/cadiz_resiste_">
-                <TwitterIcon />
-            </a>
-            <a href="mailto:hola@cadizresiste.org">
-                <EmailIcon />
-            </a>
-        </div>
-
-    </div>
-    <!-- <div class="hero-coming-soon">
-        🚧 En construcción para Cádiz Resiste 🚧
-    </div> -->
+  <div
+    class="text-white font-montserrat font-medium text-[clamp(1.085rem,_-0.218rem_+_4.706vw,_1.9rem)]"
+  >
+    Colectivo gaditano de resistencia. <br />
+    Somos torrente, somos levantera de las buenas 💪
+  </div>
 </section>
-
-<style lang="scss">
-    section.hero {
-        min-height: 100vh;
-        background-color: var(--background-green-color);
-        color: var(--background-text-color);
-        padding-top: 5rem;
-
-        display: flex;
-        flex-direction: column;
-        gap: 2.75rem;
-
-        .hero-title {
-            font-family: KosticRocGrotesk;
-            display: flex;
-            font-size: 3.95rem;
-            font-size: clamp(3.65rem, -0.725rem + 17.5vw, 5.7rem);
-            line-height: clamp(3.75rem, 0.956rem + 11.765vw, 6.25rem);
-        }
-
-        .hero-description {
-            font-family: Montserrat;
-            font-weight: 500;
-            font-size: clamp(1.085rem, -0.218rem + 4.706vw, 1.9rem);
-        }
-
-        .hero-footer {
-            margin-top: 4rem;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-
-            font-family: Montserrat;
-            font-weight: 200;
-
-            .social-media {
-                display: flex;
-                gap: 0.5rem;
-            }
-        }
-
-        .hero-coming-soon {
-            flex-grow: 1;
-
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-
-            padding-bottom: 10rem;
-        }
-    }
-</style>

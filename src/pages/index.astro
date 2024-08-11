@@ -4,20 +4,9 @@ import Hero from "../components/Hero.astro";
 ---
 
 <SectionsLayout title="Cadiz Resiste | Inicio">
-    <main>
-        <div class="mobile-frame">
-            <Hero />
-        </div>
-    </main>
+  <main>
+    <div class="max-w-2xl mx-auto px-4">
+      <Hero />
+    </div>
+  </main>
 </SectionsLayout>
-
-<style lang="scss">
-    main {
-        .mobile-frame {
-            // border: 2px dotted yellow;
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 1rem;
-        }
-    }
-</style>
