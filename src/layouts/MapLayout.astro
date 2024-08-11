@@ -1,10 +1,10 @@
 ---
 import Header from "../components/Header.astro";
-import CadizSkyLineIcon from "../components/Icons/CadizSkyLineIcon.astro";
-import "../styles/common.scss";
+import Footer from "../components/Footer.astro";
+import "../assets/common.css";
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -12,23 +12,19 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Cádiz Resiste | Web" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<!-- <meta name="generator" content={Astro.generator} /> -->
-		<title>{title}</title>
-	</head>
-	<body>
-		<div class="main-container">
-			<!-- <Header /> -->
-			<slot />
-			<!-- <Footer /> -->
-		</div>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Cádiz Resiste | Web" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-primary-500 text-white flex flex-col min-h-screen">
+    <div class="flex-grow flex flex-col">
+      <Header />
+      <main class="flex-grow">
+        <slot />
+      </main>
+    </div>
+  </body>
 </html>
-
-<style lang="scss">
-
-</style>

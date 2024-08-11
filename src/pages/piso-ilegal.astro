@@ -1,17 +1,19 @@
 ---
-import SectionsLayout from "../layouts/SectionsLayout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<SectionsLayout title="Cadiz Resiste | Denuncia pisos turísticos ilegales">
-  <main class="bg-background-green text-white pt-20 px-4 md:px-8">
+<MainLayout title="Cadiz Resiste | Denuncia pisos turísticos ilegales">
+  <main class="bg-primary-500 text-white pt-20 px-4 md:px-8">
     <div class="max-w-2xl mx-auto">
-      <h1
-        class="font-kostic text-[clamp(2.5rem,_5vw,_3.95rem)] leading-tight mb-8"
-      >
+      <h1 class="font-archivo font-extrabold text-4xl leading-tight mb-8">
         Denuncia pisos turísticos ilegales
       </h1>
       <p
-        class="font-montserrat font-medium text-[clamp(1rem,_2.5vw,_1.5rem)] leading-relaxed mb-12"
+        class="font-montserrat
+        font-medium
+        text-[clamp(1rem,_2.5vw,_1.5rem)]
+        leading-relaxed
+        mb-12"
       >
         Si quieres denunciar un piso turístico ilegal, puedes hacerlo a través
         de este formulario.<br />
@@ -36,10 +38,10 @@ import SectionsLayout from "../layouts/SectionsLayout.astro";
       </div>
       <div class="w-full mb-16">
         <iframe
-          data-tally-src="https://tally.so/embed/nWPJGj?alignLeft=1&hideTitle=1&transparentBackground=1"
+          data-tally-src="https://tally.so/embed/nWPJGj?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
           loading="eager"
           width="100%"
-          height="324"
+          height="480"
           title="Cádiz Resiste Pisos ilegales"
         >
         </iframe>
@@ -73,4 +75,4 @@ import SectionsLayout from "../layouts/SectionsLayout.astro";
       </div>
     </div>
   </main>
-</SectionsLayout>
+</MainLayout>

@@ -1,0 +1,87 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@font-face {
+  font-family: "ArchivoBlack";
+  src: url("/fonts/ArchivoBlack-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "KosticRocGrotesk";
+  src: url("/fonts/KosticRocGrotesk.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Thin.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    @apply font-montserrat font-normal text-white bg-primary-500;
+  }
+  h1 {
+    @apply text-white;
+  }
+  a {
+    @apply text-white hover:underline hover:cursor-pointer;
+  }
+}
+
+@layer components {
+  .main-container {
+    @apply max-w-[1040px] mx-auto min-h-screen flex flex-col;
+  }
+
+  .main-container main {
+    @apply flex-grow;
+  }
+
+  .fluid-container {
+    @apply px-8;
+  }
+
+  .mobile-frame {
+    @apply max-w-[720px] mx-auto p-4;
+  }
+
+  button {
+    @apply border-none font-montserrat py-3 px-3 text-base bg-white text-primary-500 rounded shadow-md tracking-wider cursor-pointer;
+  }
+}
+
+@layer utilities {
+  .list-style-none {
+    @apply list-none;
+  }
+
+  .text-inherit {
+    @apply text-inherit no-underline;
+  }
+}
